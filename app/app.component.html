@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome To Registration Form</title>
+<style>
+input{
+  width: 800px;
+  margin-left: 60px;
+  margin-right: 200px;
+}
+.labeltext{
+  width: 200px;
+}
+</style>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row justify-content-center" style="margin-top: 40px;">
+    <div class="col-8">
+      <div class="jumbotron" style="background-color: #033076;color: aliceblue;">
+        <h2>Registration Form</h2>
+        <h3>Do NOT Register more than one account in this system</h3>
+      </div>
+        <div>
+          <!-- registration form starts here -->
+          <form [formGroup]="form">
+            <div class="form-group">
+              <label class="labeltext" for="emailInput">Email</label>  
+                
+              <input formControlName="email" type="email" class="form-control-md" id="emailInput" placeholder="Enter Email"  ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>              
+              <!-- <small class="text-danger" >Email is invalid</small> -->
+            </div>
+            <div class="form-group">
+              <label class="labeltext" for="firstnameInput">First Name</label>
+            
+              <input formControlName="firstname" type="text" class="form-control-md"  id="firstnameInput" placeholder="Enter Firstname">              
+            </div>
+            <div class="form-group">
+              <label class="labeltext" for="secondnameInput">Second Name</label>
+              
+              <input formControlName="secondname" type="text" class="form-control-md"  id="secondnameInput" placeholder="Enter Secondname">              
+            </div>
+            <div class="form-group">
+              <label class="labeltext" for="dobInput">Date of Birth</label>
+           
+              <input formControlName="dob" type="date" class="form-control-md"  id="dobInput" placeholder="Date of Birth">
+          </div>
+            <div class="form-group">
+              <label class="labeltext" for="phonenoinput">Phone Number</label>
+              
+              <input  formControlName="phoneno" type="text" class="form-control-md"  id="phonenoinput" placeholder="Enter Phone No.">
+            </div>
+
+            <div class="form-group">
+                <label class="labeltext" for="passwordInput">Password</label>
+              
+                <input formControlName="password" type="password" class="form-control-md"  id="passwordInput" placeholder="Enter Password">
+            </div>
+
+            <div class="form-group">
+                <label class="labeltext" for="confpasswordInput">Confirm Password</label>
+               
+                <input formControlName="cnfpass" type="password" class="form-control-md" style="width: 800px;" id="confpasswordInput" placeholder="Re-enter Password">
+            </div>           
+            <div class="text-center">
+              <button type="register" class="btn btn-primary" (click)="onRegister()" >Register</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="reset" class="btn btn-primary " (click)="onReset()">Reset</button>
+            </div>            
+            <br><br>
+            <hr>
+            <div class="validations" *ngIf="form.touched">            
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
